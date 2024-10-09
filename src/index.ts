@@ -1,5 +1,10 @@
 import { Elysia } from 'elysia'
+import { swagger } from '@elysiajs/swagger'
 
-const app = new Elysia().get('/', () => 'Hello Elysia').listen(3000)
+const app = new Elysia()
+  .use(swagger())
+  .get('/', ({ path }) => path)
+  .post('/hello', 'Do you miss me?')
+  .listen(3000)
 
-console.log(`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`)
+console.log(`🦊 Elysia is running at http://${app.server?.hostname}:${app.server?.port}`)
