@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "dev": "bun run --watch src/index.ts"
+    "dev": "bun run --watch src/index.ts",
+    "build": "bun build --compile --minify --target bun --outfile server ./src/index.ts"
   },
   "dependencies": {
     "@elysiajs/swagger": "^1.1.3",
